@@ -19,13 +19,11 @@ export default class CheckPendingWagers extends Component {
         self.setState({
           wagers: initialData.data.wagers
 
-        }, () => {
-          console.log(self.state)
         })
 
       } catch (error) {
-        console.log('any errors?????')
-        console.log(error)
+
+        // console.log(error)
 
       }
     }

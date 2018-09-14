@@ -43,10 +43,10 @@ import LoadingComp from './components/LoadingComp'
       self.setState({
         initialData:initialData.data
 
-      }, ()=>{console.log(self.state)})
+      })
 
   }catch (error){
-    console.log(error)
+    // console.log(error)
   }
 }
 getInitialData()
@@ -337,18 +337,17 @@ gameLoopMma = ()=>{
 {this.updateWagers()}
 
     }catch(error){
-        console.log('clicked')
-      console.log(error)
+      //   console.log('clicked')
+      // console.log(error)
     }
   }else{
-    console.log('bet canceled')
+    // console.log('bet canceled')
   }
 
  }
 
  updateWagers(){
-   console.log('update wagers was clicked')
-console.log(this.state.gameSelected)
+
 this.setState({gameSelected:[]})
  }
 
@@ -360,10 +359,6 @@ this.setState({gameSelected:[]})
       <BrowserRouter>
        <div className='app-container home-page'>
         <LoadingComp initialData={(this.state.initialData == undefined) ? 'loading' : this.state.initialData} />
-
-
-
-
            <Nav initialData={(this.state.initialData == undefined) ? 'loading' : this.state.initialData}  />
            <section id="content-container">
            <Switch>

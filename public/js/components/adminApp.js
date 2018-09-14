@@ -1028,14 +1028,7 @@ var Admin = function (_Component) {
               render: function render(props) {
                 return _react2.default.createElement(_CheckPendingWagers2.default, props);
               } })
-          ),
-          _react2.default.createElement(_Gameselected2.default, { gameSelected: this.state.gameSelected,
-            cancelBet: this.cancelBet,
-            wagers: this.state.wagers,
-            handleBetRisk: this.handleBetRisk,
-            convertTime: this.convertTime,
-            submitForm: this.submitForm
-          })
+          )
         )
       );
     }
@@ -1297,21 +1290,16 @@ var CheckPendingWagers = function (_Component) {
                   self.setState({
                     wagers: initialData.data.wagers
 
-                  }, function () {
-                    console.log(self.state);
                   });
 
-                  _context.next = 11;
+                  _context.next = 9;
                   break;
 
                 case 7:
                   _context.prev = 7;
                   _context.t0 = _context['catch'](0);
 
-                  console.log('any errors?????');
-                  console.log(_context.t0);
-
-                case 11:
+                case 9:
                 case 'end':
                   return _context.stop();
               }

@@ -61,7 +61,7 @@ var Nav = function (_Component) {
   (0, _createClass3.default)(Nav, [{
     key: 'render',
     value: function render() {
-      console.log(this.props);
+
       if (this.props.initialData.userInfo == undefined) {
         return _react2.default.createElement(
           'div',
@@ -81,6 +81,11 @@ var Nav = function (_Component) {
         return _react2.default.createElement(
           'section',
           { id: 'left-menu' },
+          _react2.default.createElement(
+            'div',
+            { className: 'balance' },
+            'Balance: $3,245.56'
+          ),
           _react2.default.createElement(
             'div',
             { className: 'account-dropdown' },
@@ -137,7 +142,7 @@ var Nav = function (_Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'nav-links' },
+              { className: 'nav-links disabled' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
                 { to: '/nba', activeClassName: 'selected' },
@@ -146,10 +151,10 @@ var Nav = function (_Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'nav-links' },
+              { className: 'nav-links disabled' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
-                { to: '/boxing', activeClassName: 'selected' },
+                { to: '/boxing', activeClassName: 'selected disabled' },
                 'Boxing '
               )
             ),
@@ -164,7 +169,7 @@ var Nav = function (_Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'nav-links' },
+              { className: 'nav-links disabled' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
                 { to: '/hockey', activeClassName: 'selected' },
@@ -173,7 +178,7 @@ var Nav = function (_Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'nav-links' },
+              { className: 'nav-links disabled' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
                 { to: '/soccer', activeClassName: 'selected' },
@@ -182,7 +187,7 @@ var Nav = function (_Component) {
             ),
             _react2.default.createElement(
               'div',
-              { className: 'nav-links' },
+              { className: 'nav-links disabled' },
               _react2.default.createElement(
                 _reactRouterDom.NavLink,
                 { to: '/tennis', activeClassName: 'selected' },
@@ -844,7 +849,7 @@ var Layout = function (_Component) {
           switch (_context.prev = _context.next) {
             case 0:
               if (!confirm('Yes, place my Bets !')) {
-                _context.next = 14;
+                _context.next = 12;
                 break;
               }
 
@@ -856,24 +861,18 @@ var Layout = function (_Component) {
 
             case 4:
               post = _context.sent;
-              _this.updateWagers();_context.next = 12;
+              _this.updateWagers();_context.next = 10;
               break;
 
             case 8:
               _context.prev = 8;
               _context.t0 = _context['catch'](1);
 
-              console.log('clicked');
-              console.log(_context.t0);
-
-            case 12:
-              _context.next = 15;
+            case 10:
+              _context.next = 12;
               break;
 
-            case 14:
-              console.log('bet canceled');
-
-            case 15:
+            case 12:
             case 'end':
               return _context.stop();
           }
@@ -913,20 +912,16 @@ var Layout = function (_Component) {
                   self.setState({
                     initialData: initialData.data
 
-                  }, function () {
-                    console.log(self.state);
                   });
 
-                  _context2.next = 10;
+                  _context2.next = 9;
                   break;
 
                 case 7:
                   _context2.prev = 7;
                   _context2.t0 = _context2['catch'](0);
 
-                  console.log(_context2.t0);
-
-                case 10:
+                case 9:
                 case 'end':
                   return _context2.stop();
               }
@@ -960,8 +955,7 @@ var Layout = function (_Component) {
   }, {
     key: 'updateWagers',
     value: function updateWagers() {
-      console.log('update wagers was clicked');
-      console.log(this.state.gameSelected);
+
       this.setState({ gameSelected: [] });
     }
   }, {
@@ -1292,21 +1286,16 @@ var CheckPendingWagers = function (_Component) {
                   self.setState({
                     wagers: initialData.data.wagers
 
-                  }, function () {
-                    console.log(self.state);
                   });
 
-                  _context.next = 11;
+                  _context.next = 9;
                   break;
 
                 case 7:
                   _context.prev = 7;
                   _context.t0 = _context['catch'](0);
 
-                  console.log('any errors?????');
-                  console.log(_context.t0);
-
-                case 11:
+                case 9:
                 case 'end':
                   return _context.stop();
               }

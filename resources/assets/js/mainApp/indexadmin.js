@@ -391,14 +391,6 @@ this.setState({gameSelected:[]})
               path ='/checkPendingWagers'
               render ={(props) =><CheckPendingWagers {...props} />} />
           </section>
-
-          <Gameselected gameSelected={this.state.gameSelected}
-           cancelBet={this.cancelBet}
-           wagers={this.state.wagers}
-           handleBetRisk={this.handleBetRisk}
-           convertTime={this.convertTime}
-           submitForm= {this.submitForm}
-           />
       </div>
 
       </BrowserRouter>
