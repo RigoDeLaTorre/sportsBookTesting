@@ -1,0 +1,658 @@
+@import "reset";
+@import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
+
+@import "variables";
+@import "pages/welcome";
+@import "pages/home";
+@import "pages/profile";
+@import "auth/auth";
+
+* {
+  -webkit-box-sizing: border-box;
+  /* Safari/Chrome, other WebKit */
+  -moz-box-sizing: border-box;
+  /* Firefox, other Gecko */
+  box-sizing: border-box;
+  /* Opera/IE 8+ */
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  background: #ededed;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15,32,39,1);
+  background: -moz-linear-gradient(-45deg, rgba(15,32,39,1) 0%, rgba(44,83,100,1) 100%);
+  background: -webkit-gradient(left top, right bottom, color-stop(0%, rgba(15,32,39,1)), color-stop(100%, rgba(44,83,100,1)));
+  background: -webkit-linear-gradient(-45deg, rgba(15,32,39,1) 0%, rgba(44,83,100,1) 100%);
+  background: -o-linear-gradient(-45deg, rgba(15,32,39,1) 0%, rgba(44,83,100,1) 100%);
+  background: -ms-linear-gradient(-45deg, rgba(15,32,39,1) 0%, rgba(44,83,100,1) 100%);
+  background: linear-gradient(135deg, rgba(15,32,39,1) 0%, rgba(44,83,100,1) 100%);
+}
+
+
+
+
+.app-container {
+  width: 100%;
+  width: 100vw;
+  background: #fff;
+  max-width: 1400px;
+  min-height: calc(100vh - 15vh);
+  border-radius: 5px;
+
+
+  #header {
+    grid-area: header;
+    position: relative;
+    height: 150px;
+    margin-left:9px;
+    margin-right:8px;
+
+    .header-logo {
+      text-align: center;
+
+      img {
+        max-width: 100px;
+      }
+    }
+    // h1{
+    //   color: #f9f3f5;
+    //       font-size: 5em;
+    //       text-shadow: #333533 4px 4px 2px;
+    //       text-align: center;
+    //       letter-spacing: 5px;
+    //         background: rgba(255, 255, 255, 0.15);
+    // }
+    .account-section {
+      text-align: right;
+
+      span {
+        padding: 25px;
+        color: white;
+      }
+    }
+
+    .sport-icons {
+      display: none;
+      background: #ffffff8a;
+      padding: 20px;
+      position: absolute;
+      width: 100%;
+      bottom: 0;
+
+      .sports-group {
+        display: flex;
+        justify-content: center;
+
+        img {
+          width: 50px;
+          height: 50px;
+          margin-right: 10rem;
+        }
+      }
+    }
+  }
+
+  #left-menu {
+    border-right: 1px solid #e6e9ef;
+
+    padding: 10px;
+
+    .account-dropdown {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr;
+      padding: 15px;
+
+      .logo {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .fab {
+          font-size: 2rem;
+        }
+      }
+
+      .name {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+      }
+
+      .icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+
+        .fa-chevron-down {
+          font-size: 0.8rem;
+        }
+      }
+
+        .dropdown {
+          position: absolute;
+          bottom: -25px;
+          left: 0;
+          background: white;
+          width: 100%;
+          z-index: 10;
+          box-shadow: $boxshadowbtns;
+          transition: all 0.6s ease-in-out;
+          visibility: hidden;
+          opacity: 0;
+          cursor: pointer;
+
+          &.active {
+            visibility: visible;
+            bottom: -106px;
+            opacity: 1;
+          }
+
+          nav {
+            a {
+              display: block;
+              padding: 10px 15px;
+              color: $htext;
+            }
+          }
+        }
+    }
+
+
+    .nav-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #ffffff;
+      margin-top: 7rem;
+
+      .nav-links {
+        width: 100%;
+        text-align: center;
+        border: 1px solid #f3f3f3;
+        -webkit-box-shadow: 0 0 15px -3px rgba(224,220,220,1);
+        -moz-box-shadow: 0 0 15px -3px rgba(224,220,220,1);
+        box-shadow: 0 0 15px -3px rgba(224,220,220,1);
+        .selected{
+          background:#bad8e4;
+        }
+
+        &:hover {
+          background: #f3f3f3;
+        }
+
+        a {
+          text-decoration: none;
+          color: #353232;
+          display: block;
+          line-height: 3;
+          letter-spacing: 2px;
+
+          &:hover {
+            color: orange;
+          }
+        }
+      }
+    }
+  }
+
+  #nfl-section {
+
+    background: #ededed;
+    border-left: 1px solid #e2d6d6;
+    overflow: hidden;
+
+    box-sizing: content-box;
+        width: 100%;
+        height: calc(100% - 53px);
+        padding: 0 15px 0 8px;
+        overflow: auto;
+
+
+
+    .games-section {
+      .title-headers {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        font-size: 0.7em;
+        margin-bottom: 0.5rem;
+        background: #1d3945;
+        color: white;
+        padding: 3px;
+
+        .game-header {
+          flex: 3;
+        }
+
+        .spread-header {
+          flex: 1;
+        }
+
+        .moneyline-header {
+          flex: 1;
+        }
+
+        .overunder-header {
+          flex: 1;
+        }
+      }
+
+      .games-container {
+        position: relative;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        -webkit-box-shadow: 0 0 15px -3px rgba(82,82,82,1);
+        -moz-box-shadow: 0 0 15px -3px rgba(82,82,82,1);
+        box-shadow: 0 0 15px -3px rgba(82,82,82,1);
+
+        &:hover {
+          background: #b8d8e6;
+        }
+
+        .match-time {
+          position: absolute;
+          top: 20%;
+          left: 10px;
+          background: #dde7ea;
+          border-radius: 3px;
+
+          h5 {
+            font-size: 0.7em;
+            width: 70px;
+            padding: 5px;
+          }
+        }
+
+        .gamelist {
+          display: flex;
+          flex-flow: row nowrap;
+          justify-content: space-between;
+          color: #4e4343;
+
+          .games {
+            display: flex;
+            justify-content: center;
+
+            h5 {
+              font-size: 0.8em;
+              padding: 7px;
+            }
+          }
+
+          .teams {
+            flex: 3;
+
+            .hometeam {
+              border-bottom: 1px solid #e6dcdc;
+            }
+          }
+
+          .moneyline,
+          .spread,
+          .total {
+            border: 1px solid #e6dcdc;
+            flex: 1;
+            text-align: center;
+            font-size: 0.8em;
+            padding: 7px;
+          }
+        }
+      }
+    }
+  }
+
+  #game-selected {
+
+    background: #e4e0e0;
+
+    box-sizing: content-box;
+        width: 100%;
+        padding: 0 15px 0 8px;
+        overflow: auto;
+
+
+    h1 {
+      color: #ffffff;
+      background: #2a3e46;
+      font-size: 1.5rem;
+      text-align: center;
+      font-weight: 300;
+      padding: 5px 0;
+    }
+
+    .game-selected-container {
+      background: white;
+      padding: 15px;
+      margin-bottom: .5rem;
+      position: relative;
+
+      .close-btn {
+        position: absolute;
+        top: 81px;
+        right: 13px;
+        cursor: pointer;
+
+        img {
+          width: 20px;
+          height: 20px;
+        }
+      }
+
+      .bet-container {
+        margin-bottom: 0.5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+
+        .bet-chosen {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+
+          .teamChozen {
+            font-size:.9rem;
+            font-weight: 700;
+            margin-right: 5px;
+            text-transform: capitalize;
+          }
+        }
+
+        .wager-type {
+          font-weight: 300;
+          font-size: 0.8em;
+          text-transform: capitalize;
+        }
+      }
+
+      .match-container {
+        display: flex;
+        flex-direction: column;
+
+        .game {
+          color: #406371;
+          font-size: 0.7em;
+
+        }
+
+        .match-time {
+          font-size: 0.7em;
+          font-weight: 300;
+          color: gray;
+        }
+      }
+
+      .wager-amount {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+        margin-top:.5rem;
+        padding:0 15px;
+
+        .group-risk {
+          position: relative;
+
+          input[type="number"] {
+            color: #162b3d;
+            height: 30px;
+            width: 130px;
+            border-radius: 5px;
+            text-align: left;
+            padding-left: 50px;
+            font-weight: 600;
+          }
+
+          span {
+            position: absolute;
+            top: 8px;
+            left: 11px;
+            color: #8c9194;
+            font-size: 0.6em;
+          }
+        }
+
+        .group-winbox {
+          text-align: right;
+          position: relative;
+          padding: 1px 0;
+          border: 1px solid #9e9595;
+          background: #f2f2f2;
+          height: 30px;
+          width: 130px;
+          border-radius: 5px;
+
+          h5 {
+            color: #162b3d;
+            font-size: 0.9em;
+            position: relative;
+            top: 7px;
+            right: 33px;
+            font-weight: 600;
+          }
+
+          span {
+            position: absolute;
+            top: 8px;
+            left: 11px;
+            color: #8c9194;
+            font-size: 0.6em;
+          }
+        }
+      }
+    }
+
+    .wager-confirmation-container {
+      background: #162b3d;
+      color: #d6d6d6;
+      padding: 15px;
+
+      .confirmation-group {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+      }
+
+      button {
+        background: #406371;
+        font-size: 1rem;
+        text-align: center;
+        max-width: 100%;
+        width: 100%;
+        padding: 15px 0;
+        color: white;
+        font-weight: 100;
+        letter-spacing: 2px;
+        border: none;
+        margin-bottom: 1rem;
+        border-radius: 3px;
+        margin-top: 1rem;
+        -webkit-box-shadow: 0 16px 52px -21px rgba(84,136,143,1);
+        -moz-box-shadow: 0 16px 52px -21px rgba(84,136,143,1);
+        box-shadow: 0 16px 52px -21px rgba(84,136,143,1);
+
+        &:hover {
+          background: #45798e;
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+#app{
+  width:100%;
+
+}
+.app-container{
+  width:100%;
+  background:#fff;
+  max-width:1400px;
+  // min-height:calc(100vh - 15vh);
+  height:800px;
+  border-radius: 5px;
+  overflow:hidden;
+  margin:0 auto;
+
+}
+
+input:focus,select:focus,textarea:focus,button:focus{
+  outline:none;
+}
+label{
+  font-size: .8rem;
+  font-weight:600;
+  margin-bottom:1rem;
+  display:block;
+}
+
+input[type="text"], input.text{
+  background:#f3f3f3;
+  border:none;
+  width:100%;
+  border-radius:3px;
+  font-size: 1.2rem;
+  padding:5px 15px;
+  margin-bottom:1rem;
+}
+
+textarea{
+  width:100%;
+  height:75px;
+  background:$textfield;
+  border:none;
+  border-radius: 4px;
+  padding:15px 30px;
+  font-size:1.2rem;
+
+}
+.default-form{
+  .error-box{
+    display:none;
+    background:$red;
+    color:white;
+    padding:15px;
+    &.active{
+      display:block;
+    }
+  }
+  .form-group{
+
+    & > .error{
+      border:1px solid red;
+    }
+  }
+  button{
+    cursor:pointer;
+    width:100%;
+    min-width:200px;
+    font-size:1.2rem;
+    font-weight:300;
+    border-radius: 4px;
+    padding:10px 0;
+    color:white;
+    background: rgba(50,173,255,1);
+    background: -moz-linear-gradient(top, rgba(50,173,255,1) 0%, rgba(1,120,255,1) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(50,173,255,1)), color-stop(100%, rgba(1,120,255,1)));
+    background: -webkit-linear-gradient(top, rgba(50,173,255,1) 0%, rgba(1,120,255,1) 100%);
+    background: -o-linear-gradient(top, rgba(50,173,255,1) 0%, rgba(1,120,255,1) 100%);
+    background: -ms-linear-gradient(top, rgba(50,173,255,1) 0%, rgba(1,120,255,1) 100%);
+    background: linear-gradient(to bottom, rgba(50,173,255,1) 0%, rgba(1,120,255,1) 100%);
+  }
+}
+.notifications{
+  display:none;
+  &.welcome{
+    background:#a7f442;
+    position:fixed;
+    top:20px;
+    right:20px;
+    padding:20px;
+    z-index: 100;
+    &.active{
+      display:block;
+    }
+  }
+}
+
+
+#account{
+  box-sizing: content-box;
+      width: 100%;
+      height: calc(100% - 53px);
+      padding: 0 15px 0 8px;
+      overflow: auto;
+
+  .account-container{
+    background: #a7c4d0;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 5px;
+    table {
+
+      font-family: arial, sans-serif;
+      font-size:.7rem;
+
+      border-collapse: collapse;
+      width: 100%;
+
+
+      tr{
+        display:flex;
+        justify-content: center;
+
+
+        .wager-ticket{
+          width:50px;
+        }
+        .wager-game{
+          flex:5;
+        }
+        .wager-bet{
+
+        }
+        .wager-headers{
+          background:#233941;
+        }
+        .pending{
+          background:#eeac34;
+        }
+        .graded{
+          background:#7c9a7c;
+        }
+        th,td{
+          flex:1;
+          color:white;
+          text-align: center;
+      padding: 4px;
+      border:1px solid black;
+        }
+        td{
+          font-weight:100;
+          color:black;
+        }
+
+      }
+  }
+
+
+  tr:nth-child(even) {
+      background-color: #dddddd;
+
+  }
+  }
+}

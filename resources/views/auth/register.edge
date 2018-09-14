@@ -1,0 +1,101 @@
+@layout('layouts/empty')
+
+@section('title')
+Sportsbook - Register
+@endsection
+
+@section('current-class')
+auth-page
+@endsection
+
+
+@section('custom-style-app-container')
+
+@endsection
+
+@section('content')
+
+  <div class="auth-form">
+    <h1>Sportsbook</h1>
+    <form class="default-form" action="/register" method="post">
+      {{ csrfField() }}
+      <div class="error-box
+      @if(hasErrorFor('email') || hasErrorFor('password') || hasErrorFor('first_name') || hasErrorFor('last_name'))
+      active
+      @endif
+      ">
+      @if(hasErrorFor('first_name'))
+      {{ getErrorFor('first_name')}}
+      @endif
+
+      @if(hasErrorFor('last_name'))
+      {{ getErrorFor('last_name')}}
+      @endif
+
+      @if(hasErrorFor('email'))
+      {{ getErrorFor('email')}}
+      @endif
+
+      @if(hasErrorFor('password'))
+      {{ getErrorFor('password')}}
+      @endif
+      @if(hasErrorFor('database'))
+      {{ getErrorFor('database')}}
+      @endif
+
+      </div>
+      <div class="form-group">
+        <label for="first_name">First Name: </label>
+        <input type="text" name="first_name" value="{{ old('first_name', '') }}" class="text
+        @if(hasErrorFor('first_name'))
+          error
+        @endif
+        ">
+      </div>
+      <div class="form-group">
+        <label for="last_name">Last Name: </label>
+        <input type="text" name="last_name" value="{{ old('last_name', '') }}" class="text
+        @if(hasErrorFor('last_name'))
+          error
+        @endif
+        ">
+      </div>
+      <div class="form-group">
+        <label for="email">Email: </label>
+        <input type="text" name="email" value="{{ old('email', '') }}" class="text
+        @if(hasErrorFor('email'))
+          error
+        @endif
+        ">
+      </div>
+      <div class="form-group">
+        <label for="password">Password: </label>
+        <input type="password" name="password" value="" class="text
+        @if(hasErrorFor('password'))
+          error
+        @endif
+        ">
+      </div>
+      <div class="form-group">
+        <label for="confirm_password">Confirm Password: </label>
+        <input type="password" name="confirm_password" value="" class="text
+        @if(hasErrorFor('confirm_password'))
+        error
+        @endif
+        ">
+      </div>
+      <div class="form-group">
+        <button type="submit">Register</button>
+      </div>
+      <hr>
+      <a href="/login">I remembered my info let me login</a>
+    </form>
+
+  </div>
+  <div class="side-image">
+
+  </div>
+
+
+
+@endsection

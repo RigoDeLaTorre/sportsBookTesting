@@ -1,0 +1,28 @@
+
+
+.app-container.home-page .profile-page{
+  display:grid;
+  grid-template-columns: 1fr 3fr;
+  .user-img{
+    background:black;
+    img{
+
+    }
+  }
+.info{
+  padding:20px;
+  h1{
+    font-size: 2rem;
+    margin-bottom:1rem 0;
+  }
+  .follow-btn{
+    background:$primaryButtonBG;
+    display:inline-block;
+    padding:15px 25px;
+    border-radius: 4px;
+    border:1px solid rgba(0,0,0,.2);
+    color:white;
+    cursor:pointer;
+  }
+}
+}

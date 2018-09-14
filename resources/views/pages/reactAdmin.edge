@@ -1,0 +1,30 @@
+@layout('layouts/app-reactAdmin')
+
+@section('title')
+Toku- social network
+@endsection
+
+@section('current-class')
+home-page
+
+@endsection
+@section('notifications')
+<div class="notifications welcome
+@if(flashMessage('notification'))
+active
+@endif
+">
+@if(flashMessage('notification'))
+  {{flashMessage('notification')}}
+@endif
+
+</div>
+@endsection
+
+@section('content-area')
+
+<div id="admin">
+
+</div>
+
+@endsection

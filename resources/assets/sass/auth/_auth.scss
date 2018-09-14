@@ -1,0 +1,64 @@
+.auth-page{
+display:grid;
+grid-template-columns: 1fr 1fr;
+
+  .auth-form{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    h1{
+      font-family:$cursive;
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom:1.2rem;
+    }
+    hr{
+      height:1px;
+      background:#1b1b1b;
+      width:100%;
+      margin:1rem 0;
+    }
+    a{
+      text-decoration: none;
+      color:blue;
+      text-transform: capitalize;
+      text-align: center;
+      display:block;
+    }
+    form{
+      min-width:350px;
+      max-width:400px;
+    }
+    .register-btn{
+      cursor:pointer;
+      width:100%;
+      min-width:200px;
+      font-size:1.2rem;
+      font-weight:300;
+      border-radius: 4px;
+      padding:10px 0;
+      color:#1b1b1b;
+      background: #fff;
+      border:1px solid #1b1b1b;
+      text-decoration: none;
+      transition:all .3s ease-in-out;
+      margin-bottom:1rem;
+      &:visited{
+        color:#1b1b1b;
+      }
+      &:hover{
+        background:#1b1b1b;
+        color:#fff;
+      }
+
+    }
+  }
+  .side-image{
+    background-position: center center;
+    background-repeat:no-repeat;
+    background-image:url('/img/sideImage.jpeg');
+    height:100%;
+    background-size:cover;
+  }
+}
