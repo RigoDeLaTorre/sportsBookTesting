@@ -1,10 +1,7 @@
 @import "reset";
 @import url('https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700');
-
-@import "variables";
 @import "pages/welcome";
 @import "pages/home";
-@import "pages/profile";
 @import "auth/auth";
 
 * {
@@ -147,7 +144,7 @@ body {
           background: white;
           width: 100%;
           z-index: 10;
-          box-shadow: $boxshadowbtns;
+          box-shadow: 0 2px 15px -3px #bfbfbf;
           transition: all 0.6s ease-in-out;
           visibility: hidden;
           opacity: 0;
@@ -163,7 +160,7 @@ body {
             a {
               display: block;
               padding: 10px 15px;
-              color: $htext;
+              color: #3c3c3c;
             }
 
           }
@@ -544,7 +541,7 @@ input[type="text"], input.text{
 textarea{
   width:100%;
   height:75px;
-  background:$textfield;
+  background:#f3f3f3;
   border:none;
   border-radius: 4px;
   padding:15px 30px;
@@ -554,7 +551,7 @@ textarea{
 .default-form{
   .error-box{
     display:none;
-    background:$red;
+    background:#ff3658;
     color:white;
     padding:15px;
     &.active{

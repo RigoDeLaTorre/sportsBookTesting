@@ -2206,11 +2206,7 @@ var LoadingComp = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'lds-css ng-scope', style: { width: '200px', height: '200px' } },
-            _react2.default.createElement(
-              'div',
-              { style: { width: '100%', height: '100%' }, className: 'lds-rolling' },
-              _react2.default.createElement('div', null)
-            )
+            _react2.default.createElement('div', { style: { width: '100%', height: '100%' }, className: 'lds-rolling' })
           )
         ),
         _react2.default.createElement(
@@ -2688,14 +2684,11 @@ var PendingWagers = function (_Component) {
                 case 3:
                   initialData = _context.sent;
 
-
                   self.setState({
                     wagers: initialData.data.wagers
-
                   }, function () {
                     console.log(self.state);
                   });
-
                   _context.next = 11;
                   break;
 
@@ -2718,13 +2711,11 @@ var PendingWagers = function (_Component) {
           return _ref.apply(this, arguments);
         };
       }();
-
       getInitialData();
     }
   }, {
     key: 'render',
     value: function render() {
-
       return _react2.default.createElement(
         'section',
         { id: 'account' },

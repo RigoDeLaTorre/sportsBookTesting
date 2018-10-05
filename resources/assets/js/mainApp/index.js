@@ -328,21 +328,35 @@ gameLoopMma = ()=>{
     })
   }
 
-  submitForm = async () =>{
-    if(confirm('Yes, place my Bets !')){
-      try{
-        const post = await axios.post('/api/post', {
-          wagers:this.state.gameSelected
-      })
-{this.updateWagers()}
+  submitForm = () =>{
+      let count=0;
+    this.state.gameSelected.map((item)=>{
 
-    }catch(error){
-      //   console.log('clicked')
-      // console.log(error)
+      if(item.wager_risk == null || item.wager_risk ==0){
+        count+=1;
+        console.log(count)
+      }else{
+          console.log('testing')
+      }
+      if(count<1){
+        if(confirm('Yes, place my Bets !')){
+          try{
+            const post = axios.post('/api/post', {
+              wagers:this.state.gameSelected
+          })
+          {this.updateWagers()}
+        }catch(error){
+          //   console.log('clicked')
+          // console.log(error)
+        }
+      }else{
+        // console.log('bet canceled')
+      }
+    }else{
+      alert("Please Fill Bet")
     }
-  }else{
-    // console.log('bet canceled')
-  }
+    })
+
 
  }
 
@@ -398,7 +412,6 @@ this.setState({gameSelected:[]})
            submitForm= {this.submitForm}
            />
       </div>
-
       </BrowserRouter>
 
     )

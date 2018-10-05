@@ -333,8 +333,6 @@ var Layout = function (_Component) {
   (0, _inherits3.default)(Layout, _Component);
 
   function Layout() {
-    var _this2 = this;
-
     (0, _classCallCheck3.default)(this, Layout);
 
     var _this = (0, _possibleConstructorReturn3.default)(this, (Layout.__proto__ || Object.getPrototypeOf(Layout)).call(this));
@@ -842,43 +840,37 @@ var Layout = function (_Component) {
       });
     };
 
-    _this.submitForm = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
-      var post;
-      return _regenerator2.default.wrap(function _callee$(_context) {
-        while (1) {
-          switch (_context.prev = _context.next) {
-            case 0:
-              if (!confirm('Yes, place my Bets !')) {
-                _context.next = 12;
-                break;
-              }
+    _this.submitForm = function () {
+      var count = 0;
+      _this.state.gameSelected.map(function (item) {
 
-              _context.prev = 1;
-              _context.next = 4;
-              return _axios2.default.post('/api/post', {
+        if (item.wager_risk == null || item.wager_risk == 0) {
+          count += 1;
+          console.log(count);
+        } else {
+          console.log('testing');
+        }
+        if (count < 1) {
+          if (confirm('Yes, place my Bets !')) {
+            try {
+              var post = _axios2.default.post('/api/post', {
                 wagers: _this.state.gameSelected
               });
-
-            case 4:
-              post = _context.sent;
-              _this.updateWagers();_context.next = 10;
-              break;
-
-            case 8:
-              _context.prev = 8;
-              _context.t0 = _context['catch'](1);
-
-            case 10:
-              _context.next = 12;
-              break;
-
-            case 12:
-            case 'end':
-              return _context.stop();
-          }
+              {
+                _this.updateWagers();
+              }
+            } catch (error) {
+              //   console.log('clicked')
+              // console.log(error)
+            }
+          } else {
+              // console.log('bet canceled')
+            }
+        } else {
+          alert("Please Fill Bet");
         }
-      }, _callee, _this2, [[1, 8]]);
-    }));
+      });
+    };
 
     _this.state = {
       nfldata: _nfldata2.default,
@@ -895,18 +887,18 @@ var Layout = function (_Component) {
     value: function componentWillMount() {
       var self = this;
       var getInitialData = function () {
-        var _ref2 = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2() {
+        var _ref = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
           var initialData;
-          return _regenerator2.default.wrap(function _callee2$(_context2) {
+          return _regenerator2.default.wrap(function _callee$(_context) {
             while (1) {
-              switch (_context2.prev = _context2.next) {
+              switch (_context.prev = _context.next) {
                 case 0:
-                  _context2.prev = 0;
-                  _context2.next = 3;
+                  _context.prev = 0;
+                  _context.next = 3;
                   return _axios2.default.get('/api/initialApp');
 
                 case 3:
-                  initialData = _context2.sent;
+                  initialData = _context.sent;
 
 
                   self.setState({
@@ -914,23 +906,23 @@ var Layout = function (_Component) {
 
                   });
 
-                  _context2.next = 9;
+                  _context.next = 9;
                   break;
 
                 case 7:
-                  _context2.prev = 7;
-                  _context2.t0 = _context2['catch'](0);
+                  _context.prev = 7;
+                  _context.t0 = _context['catch'](0);
 
                 case 9:
                 case 'end':
-                  return _context2.stop();
+                  return _context.stop();
               }
             }
-          }, _callee2, this, [[0, 7]]);
+          }, _callee, this, [[0, 7]]);
         }));
 
         return function getInitialData() {
-          return _ref2.apply(this, arguments);
+          return _ref.apply(this, arguments);
         };
       }();
       getInitialData();
@@ -961,7 +953,7 @@ var Layout = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
-      var _this3 = this;
+      var _this2 = this;
 
       return _react2.default.createElement(
         _reactRouterDom.BrowserRouter,
@@ -985,22 +977,22 @@ var Layout = function (_Component) {
             _react2.default.createElement(_reactRouterDom.Route, {
               exact: true, path: '/',
               render: function render(props) {
-                return _react2.default.createElement(_Mlb2.default, (0, _extends3.default)({}, props, { gameLoopMlb: _this3.gameLoopMlb }));
+                return _react2.default.createElement(_Mlb2.default, (0, _extends3.default)({}, props, { gameLoopMlb: _this2.gameLoopMlb }));
               } }),
             _react2.default.createElement(_reactRouterDom.Route, {
               path: '/mlb',
               render: function render(props) {
-                return _react2.default.createElement(_Mlb2.default, (0, _extends3.default)({}, props, { gameLoopMlb: _this3.gameLoopMlb }));
+                return _react2.default.createElement(_Mlb2.default, (0, _extends3.default)({}, props, { gameLoopMlb: _this2.gameLoopMlb }));
               } }),
             _react2.default.createElement(_reactRouterDom.Route, {
               path: '/nfl',
               render: function render(props) {
-                return _react2.default.createElement(_Nfl2.default, (0, _extends3.default)({}, props, { gameLoopNfl: _this3.gameLoopNfl }));
+                return _react2.default.createElement(_Nfl2.default, (0, _extends3.default)({}, props, { gameLoopNfl: _this2.gameLoopNfl }));
               } }),
             _react2.default.createElement(_reactRouterDom.Route, {
               path: '/mma',
               render: function render(props) {
-                return _react2.default.createElement(_Mma2.default, (0, _extends3.default)({}, props, { gameLoopMma: _this3.gameLoopMma }));
+                return _react2.default.createElement(_Mma2.default, (0, _extends3.default)({}, props, { gameLoopMma: _this2.gameLoopMma }));
               } }),
             _react2.default.createElement(_reactRouterDom.Route, {
               path: '/graded',
@@ -2202,11 +2194,7 @@ var LoadingComp = function (_Component) {
           _react2.default.createElement(
             'div',
             { className: 'lds-css ng-scope', style: { width: '200px', height: '200px' } },
-            _react2.default.createElement(
-              'div',
-              { style: { width: '100%', height: '100%' }, className: 'lds-rolling' },
-              _react2.default.createElement('div', null)
-            )
+            _react2.default.createElement('div', { style: { width: '100%', height: '100%' }, className: 'lds-rolling' })
           )
         ),
         _react2.default.createElement(
@@ -2684,14 +2672,11 @@ var PendingWagers = function (_Component) {
                 case 3:
                   initialData = _context.sent;
 
-
                   self.setState({
                     wagers: initialData.data.wagers
-
                   }, function () {
                     console.log(self.state);
                   });
-
                   _context.next = 11;
                   break;
 
@@ -2714,13 +2699,11 @@ var PendingWagers = function (_Component) {
           return _ref.apply(this, arguments);
         };
       }();
-
       getInitialData();
     }
   }, {
     key: 'render',
     value: function render() {
-
       return _react2.default.createElement(
         'section',
         { id: 'account' },

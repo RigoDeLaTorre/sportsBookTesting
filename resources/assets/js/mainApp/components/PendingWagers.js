@@ -15,23 +15,18 @@ export default class PendingWagers extends Component {
 
       try {
         const initialData = await axios.get('/api/pending')
-
         self.setState({
           wagers: initialData.data.wagers
-
         }, () => {
           console.log(self.state)
         })
-
       } catch (error) {
         console.log('any errors?????')
         console.log(error)
 
       }
     }
-
     getInitialData()
-
   }
 
 showLatestWagers = () =>{
@@ -84,15 +79,14 @@ showLatestWagers = () =>{
     })
   }else{
     return( <div> <a href = "/login">Please re-login</a></div>)
-
   }
 }
-  render() {
 
+  render() {
     return (
-    <section id ="account">
-    {this.showLatestWagers()}
-    </section>
+        <section id ="account">
+        {this.showLatestWagers()}
+        </section>
     )
 
   }
